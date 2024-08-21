@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+use GetStream\StreamChat\Client as StreamClient;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -69,8 +70,6 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
-
-    use GetStream\StreamChat\Client as StreamClient;
 
     protected function registered($user){
         $client = new StreamClient(env("MIX_STREAM_API_KEY"), env("MIX_STREAM_API_SECRET"), null, null, 9);
