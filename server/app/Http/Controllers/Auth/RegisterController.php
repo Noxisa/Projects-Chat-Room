@@ -69,4 +69,27 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    use GetStream\StreamChat\Client as StreamClient;
+
+    protected function registered($user){
+        $client = new StreamClient(env("MIX_STREAM_API_KEY"), env("MIX_STREAM_API_SECRET"), null, null, 9);
+
+        $username = explode('@', $user->email)[0];
+
+        // create the user on Chat room
+        $client -> updateUser([
+            'id' => $username,
+            'name' => $user -> name,
+        ]);
+
+        //create channel
+        $channel = $client ->Channel("messaging", "chatroom");
+
+        //channel is created by `admin`  user
+        $channel -> create('admin');
+
+        // add new registered user as a member
+        $channel -> addMembers([$username]);
+    }
 }
