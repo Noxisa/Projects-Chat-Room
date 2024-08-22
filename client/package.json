@@ -11,7 +11,9 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "vue": "^3.4.29"
+    "lamejs": "^1.2.1",
+    "vue": "^3.4.29",
+    "vue-advanced-chat": "^2.1.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
