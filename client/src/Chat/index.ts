@@ -1,4 +1,4 @@
-import {chat} from 'vue-advanced-chat';
+
 
 const mapUser = (user: any) => ({
     _id: user.name,

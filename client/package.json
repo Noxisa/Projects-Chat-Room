@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "lamejs": "^1.2.1",
+    "stream-chat": "^8.40.0",
     "vue": "^3.4.29",
     "vue-advanced-chat": "^2.1.0"
   },
